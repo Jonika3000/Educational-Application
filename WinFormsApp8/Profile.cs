@@ -28,6 +28,8 @@ namespace WinFormsApp8
         void First (object sender , EventArgs e)
         {
             pictureBox1.BackgroundImage = u.icon;
+            Text = "Change profile";
+            this.Icon = new Icon("book_ico.ico");
             textBox1.Text = u.Name;
             textBox2.Text = u.Password;
             textBox3.Text = u.Group;
@@ -50,19 +52,9 @@ namespace WinFormsApp8
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (parent.GetType() == typeof(Dispatching))
-            {
-                var form2collection = Application.OpenForms.OfType<Dispatching>().FirstOrDefault();
 
-                if (null != form2collection)
-                {
-                    form2collection.r = u;
-                    form2collection.Visible = true;
-                    this.Close();
-                    
-                }
-           }
-           
+            Application.OpenForms[1].Visible = true;
+            this.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -70,15 +62,59 @@ namespace WinFormsApp8
             u.Name = textBox1.Text;
             u.Password = textBox2.Text;
             u.Group = textBox3.Text;
-             
+            u.icon = pictureBox1.BackgroundImage;
             var form2collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
            
             if (null != form2collection)
             {
-                this.Close();
+                
                 var itemToRemove = form2collection.users.Single(r => r.Login == u.Login);
                 form2collection.users.Remove(itemToRemove);
-                form2collection.users.Add(u);   
+                form2collection.users.Add(u);
+                 if (parent != null)
+                {
+                    if (parent.GetType() == typeof(Dispatching))
+                {
+                    var form3collection = Application.OpenForms.OfType<Dispatching>().FirstOrDefault();
+                        if (null != form3collection)
+                        {
+                            form3collection.r = u;
+                            form3collection.UpdateL();
+                            form3collection.Visible = true;
+                            this.Close();
+
+                        }
+                    }
+                else if (parent.GetType() == typeof(Student))
+                {
+                    var form3collection = Application.OpenForms.OfType<Student>().FirstOrDefault();
+                        if (null != form3collection)
+                        {
+                            form3collection.r = u;
+                            form3collection.UpdateL();
+                            form3collection.Visible = true;
+                            this.Close();
+
+                        }
+                    }
+                else if (parent.GetType() == typeof(Teacher))
+                {
+                    var form3collection = Application.OpenForms.OfType<Teacher>().FirstOrDefault();
+                        if (null != form3collection)
+                        {
+                            form3collection.r = u;
+                            form3collection.UpdateL();
+                            form3collection.Visible = true;
+                            this.Close();
+
+                        }
+
+                    }
+                   
+                }
+                
+               
+                
             }
         }
     }
