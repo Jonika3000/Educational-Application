@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp8
 {
-    internal class User
+    public class User
     {
         
         public string Name { get; set; }
