@@ -53,7 +53,7 @@ namespace WinFormsApp8
                  if (d.Type == "Student")
                 {
                     this.Hide();
-                    Student s = new Student(d);
+                    Student s = new Student(d , this);
                     s.ShowDialog();
                 }
                 else if (d.Type == "Teacher")
