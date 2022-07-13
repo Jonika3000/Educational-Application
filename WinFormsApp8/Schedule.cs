@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp8
 {
-    internal class Schedule
+    public class Schedule
     {
         Dictionary<DateTime, Subject> schedule = new Dictionary<DateTime, Subject>();
         public void Add(Subject s, DateTime d)

@@ -32,5 +32,11 @@ namespace WinFormsApp8
             Profile m = new Profile(r, this);
             m.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Add_schedule t = new Add_schedule();
+            t.ShowDialog();
+        }
     }
 }
