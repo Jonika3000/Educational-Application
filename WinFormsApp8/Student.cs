@@ -12,11 +12,11 @@ namespace WinFormsApp8
 {
     public partial class Student : Form
     {
+        
         public Student()
         {
             InitializeComponent();
             this.BackgroundImage = Image.FromFile("studentFon.jpg");
-
         }
     }
 }
