@@ -18,6 +18,7 @@ namespace WinFormsApp8
         }
         public Teacher(User s)
         {
+            InitializeComponent();
             this.BackgroundImage = Image.FromFile("TeacherFom.jpg");
             label1.Text = s.Login;
             label3.Text = s.Group;
