@@ -12,15 +12,15 @@ namespace WinFormsApp8
 {
     public partial class Student : Form
     {
-        Login parent;
+        
         public Student()
         {
             InitializeComponent();
         }
-        public Student(User s , Login p)
+        public Student(User s  )
         {
             InitializeComponent();
-            parent = p;
+           
             this.BackgroundImage = Image.FromFile("studentFon.jpg");
             label2.Text = s.Group;
             label4.Text = s.Name;
@@ -35,9 +35,12 @@ namespace WinFormsApp8
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            parent.ShowDialog();
-            
+            var frm = Application.OpenForms.Cast<Form>().Where(x => x.Name == "Login").FirstOrDefault();
+            if (null != frm)
+            {
+                this.Close();
+                frm.Visible = true;
+            }
         }
     }
 }

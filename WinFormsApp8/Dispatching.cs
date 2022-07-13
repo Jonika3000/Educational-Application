@@ -12,22 +12,25 @@ namespace WinFormsApp8
 {
     public partial class Dispatching : Form
     {
-        User r = new User();
+     public   User r = new User();
         public Dispatching()
         {
             InitializeComponent();
         }
-        public Dispatching(User r)
+        public Dispatching(User q)
         {
             InitializeComponent();
             this.BackgroundImage = Image.FromFile("DispatchingFon.jpeg");
+            r = q;
             label1.Text = r.Login;
+            pictureBox1.Image = q.icon;
         }
 
         private void button2_Click(object sender, EventArgs e )
         {
+            this.Hide();
             Profile m = new Profile(r, this);
-            m.Show();
+            m.ShowDialog();
         }
     }
 }

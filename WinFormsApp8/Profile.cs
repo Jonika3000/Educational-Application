@@ -23,17 +23,63 @@ namespace WinFormsApp8
             InitializeComponent();
             this.u = u;
             parent = f;
-            
+            Shown += First;
         }
-
+        void First (object sender , EventArgs e)
+        {
+            pictureBox1.BackgroundImage = u.icon;
+            textBox1.Text = u.Name;
+            textBox2.Text = u.Password;
+            textBox3.Text = u.Group;
+            if (u.Type == "Dispatching")
+            {
+                textBox3.Text = "None";
+                textBox3.ReadOnly = true;
+            }
+             
+        }
         private void pictureBox1_DoubleClick(object sender, EventArgs e )
         {
             OpenFileDialog openFile = new OpenFileDialog();// создаем диалоговое окно
             openFile.ShowDialog();// открываем окно
             string FileName = openFile.FileName;// берем полный адрес картинки            
-            pictureBox1.ImageLocation = FileName;// грузим картинку в pictureBox
+            pictureBox1.BackgroundImage = Image.FromFile(FileName);// грузим картинку в pictureBox
             
             u.icon = pictureBox1.Image;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (parent.GetType() == typeof(Dispatching))
+            {
+                var form2collection = Application.OpenForms.OfType<Dispatching>().FirstOrDefault();
+
+                if (null != form2collection)
+                {
+                    form2collection.r = u;
+                    form2collection.Visible = true;
+                    this.Close();
+                    
+                }
+           }
+           
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            u.Name = textBox1.Text;
+            u.Password = textBox2.Text;
+            u.Group = textBox3.Text;
+             
+            var form2collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
+           
+            if (null != form2collection)
+            {
+                this.Close();
+                var itemToRemove = form2collection.users.Single(r => r.Login == u.Login);
+                form2collection.users.Remove(itemToRemove);
+                form2collection.users.Add(u);   
+            }
         }
     }
 }

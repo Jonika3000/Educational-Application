@@ -58,7 +58,7 @@ namespace WinFormsApp8
                  if (d.Type == "Student")
                 {
                     this.Hide();
-                    Student s = new Student(d , this);
+                    Student s = new Student(d );
                     s.ShowDialog();
                 }
                 else if (d.Type == "Teacher")
@@ -91,7 +91,7 @@ namespace WinFormsApp8
 
             var d = users.Where(a => a.Name == r.Name).FirstOrDefault();
 
-            if (d == null && selected != null)
+            if (d == null && selected != null && r.Password != null && r.Login != null)
             {
                 r.Type = selected;
                 r.icon = Image.FromFile("user ico.png");
@@ -110,6 +110,12 @@ namespace WinFormsApp8
             {
                 label3.Visible = true;
                 label3.Text = "Select user type";
+                this.label3.ForeColor = System.Drawing.Color.Red;
+            }
+            else if (r.Password == null && r.Login == null)
+            {
+                label3.Visible = true;
+                label3.Text = "Not all fields are filled";
                 this.label3.ForeColor = System.Drawing.Color.Red;
             }
         }

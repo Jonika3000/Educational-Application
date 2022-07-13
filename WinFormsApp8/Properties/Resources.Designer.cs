@@ -63,6 +63,16 @@ namespace WinFormsApp8.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap close_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("close-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Fon_Login {
             get {
                 object obj = ResourceManager.GetObject("Fon_Login", resourceCulture);
