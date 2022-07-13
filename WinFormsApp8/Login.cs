@@ -85,10 +85,16 @@ namespace WinFormsApp8
                 label3.Text = "You have registered successfully";
                 this.label3.ForeColor = System.Drawing.Color.Green;
             }
-            else
+            else if (d == null)
             {
                 label3.Visible = true;
                 label3.Text = "This user already exists";
+                this.label3.ForeColor = System.Drawing.Color.Red;
+            }
+            else if (selected != null)
+            {
+                label3.Visible = true;
+                label3.Text = "Select user type";
                 this.label3.ForeColor = System.Drawing.Color.Red;
             }
         }

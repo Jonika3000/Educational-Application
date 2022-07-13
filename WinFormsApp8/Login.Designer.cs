@@ -137,7 +137,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(134, 372);
+            this.label3.Location = new System.Drawing.Point(114, 372);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(0, 15);
             this.label3.TabIndex = 9;
