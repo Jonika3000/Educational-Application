@@ -40,7 +40,15 @@ namespace WinFormsApp8
             Profile m = new Profile(r, this);
             m.ShowDialog();
         }
-
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var frm = Application.OpenForms.Cast<Form>().Where(x => x.Name == "Login").FirstOrDefault();
+            if (null != frm)
+            {
+                this.Close();
+                frm.Visible = true;
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             Add_schedule t = new Add_schedule();
