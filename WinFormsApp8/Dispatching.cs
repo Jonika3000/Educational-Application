@@ -51,6 +51,7 @@ namespace WinFormsApp8
         }
         private void button1_Click(object sender, EventArgs e)
         {
+
             Add_schedule t = new Add_schedule();
             t.ShowDialog();
         }
