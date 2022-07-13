@@ -13,6 +13,7 @@ namespace WinFormsApp8
         {
             InitializeComponent();
             Shown += First;
+            
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             button2.Click += ButtonLogin;
             button3.Click += ButtonRegister;
@@ -63,6 +64,7 @@ namespace WinFormsApp8
                 }
                 else if (d.Type == "Dispatching")
                 {
+                    
                     this.Hide();
                     Dispatching t = new Dispatching(d);
                     t.ShowDialog();
