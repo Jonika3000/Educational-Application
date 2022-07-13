@@ -9,9 +9,14 @@ namespace WinFormsApp8
     internal class Schedule
     {
         Dictionary<DateTime, Subject> schedule = new Dictionary<DateTime, Subject>();
-        public void Add(Subject s , DateTime d)
+        public void Add(Subject s, DateTime d)
         {
-            schedule.Add(d ,  s);
+            schedule.Add(d, s);
+
+        }
+        public void Delete(DateTime d)
+        {
+            schedule.Remove(d);
         }
     }
 }
