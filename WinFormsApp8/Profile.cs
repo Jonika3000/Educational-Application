@@ -25,7 +25,7 @@ namespace WinFormsApp8
             parent = f;
         }
 
-        private void pictureBox1_DoubleClick(object sender, EventArgs e , User u)
+        private void pictureBox1_DoubleClick(object sender, EventArgs e )
         {
             OpenFileDialog openFile = new OpenFileDialog();// создаем диалоговое окно
             openFile.ShowDialog();// открываем окно
