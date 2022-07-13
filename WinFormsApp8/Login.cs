@@ -37,7 +37,7 @@ namespace WinFormsApp8
             comboBox1.Items.Add("Teacher");
             comboBox1.Items.Add("Dispatching");
             
-            LoadUser();
+            //LoadUser();
         }
         void ButtonLogin (object sender , EventArgs e)
         {
@@ -63,9 +63,9 @@ namespace WinFormsApp8
                 }
                 else if (d.Type == "Dispatching")
                 {
-                    //this.Hide();
-                    //Dispatching t = new Dispatching();
-                    //t.ShowDialog();
+                    this.Hide();
+                    Dispatching t = new Dispatching();
+                    t.ShowDialog();
                 }
             }
             else
