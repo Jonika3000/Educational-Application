@@ -16,6 +16,12 @@ namespace WinFormsApp8
         public Student()
         {
             InitializeComponent();
+             
+
+        }
+        public Student(User s)
+        {
+            InitializeComponent();
             this.BackgroundImage = Image.FromFile("studentFon.jpg");
         }
     }

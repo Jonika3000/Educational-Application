@@ -10,5 +10,10 @@ namespace WinFormsApp8
     {
         public string Name { get; set; }
          public DateTime time { get; set; }
+        Subject(string name, DateTime time)
+        {
+            Name = name;
+            this.time = time;
+        }
     }
 }
