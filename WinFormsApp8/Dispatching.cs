@@ -25,7 +25,11 @@ namespace WinFormsApp8
             label1.Text = r.Login;
             pictureBox1.Image = q.icon;
         }
-
+       public void UpdateL ()
+        {
+            pictureBox1.Image = r.icon;
+            label1.Text=r.Login;
+        }
         private void button2_Click(object sender, EventArgs e )
         {
             this.Hide();
