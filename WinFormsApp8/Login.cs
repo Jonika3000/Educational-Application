@@ -1,3 +1,5 @@
+using System.Text.Json;
+
 namespace WinFormsApp8
 {
     public partial class Login : Form
@@ -15,7 +17,14 @@ namespace WinFormsApp8
             button2.Click += ButtonLogin;
             button3.Click += ButtonRegister;
         }
-
+        void LoadUser()
+        {
+            using (FileStream fs = new FileStream("user.json", FileMode.OpenOrCreate))
+            {
+                users = JsonSerializer.Deserialize<List<User>>(fs);
+            }
+             
+        }
         void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             selected = comboBox1.SelectedItem.ToString() ;
@@ -27,10 +36,8 @@ namespace WinFormsApp8
             comboBox1.Items.Add("Student");
             comboBox1.Items.Add("Teacher");
             comboBox1.Items.Add("Dispatching");
-            User d = new User();
-            d.Password = "Admin";
-            d.Name = "Admin";
-            users.Add(d);
+            
+            LoadUser();
         }
         void ButtonLogin (object sender , EventArgs e)
         {
