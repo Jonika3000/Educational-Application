@@ -19,6 +19,7 @@ namespace WinFormsApp8
         }
         public Dispatching(User r)
         {
+            InitializeComponent();
             this.BackgroundImage = Image.FromFile("DispatchingFon.jpeg");
             label1.Text = r.Login;
         }

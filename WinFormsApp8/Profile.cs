@@ -23,6 +23,7 @@ namespace WinFormsApp8
             InitializeComponent();
             this.u = u;
             parent = f;
+            
         }
 
         private void pictureBox1_DoubleClick(object sender, EventArgs e )
@@ -31,6 +32,7 @@ namespace WinFormsApp8
             openFile.ShowDialog();// открываем окно
             string FileName = openFile.FileName;// берем полный адрес картинки            
             pictureBox1.ImageLocation = FileName;// грузим картинку в pictureBox
+            pictureBox1.Image = Image.Zoo
             u.icon = pictureBox1.Image;
         }
     }

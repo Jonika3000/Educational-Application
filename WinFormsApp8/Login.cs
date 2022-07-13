@@ -8,7 +8,7 @@ namespace WinFormsApp8
         ConsoleKeyInfo k;
         string logintmp;
         string passwordtmp;
-        List<User> users = new List<User>();
+       public List<User> users = new List<User>();
         public Login()
         {
             InitializeComponent();

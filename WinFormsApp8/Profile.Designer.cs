@@ -32,6 +32,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,6 +82,42 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(168, 122);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(188, 23);
+            this.textBox2.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Showcard Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(168, 101);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 18);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Password:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(168, 185);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(188, 23);
+            this.textBox3.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Showcard Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(168, 164);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 18);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Group:";
+            // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -85,6 +125,10 @@
             this.BackgroundImage = global::WinFormsApp8.Properties.Resources.Fon_Login;
             this.ClientSize = new System.Drawing.Size(449, 528);
             this.ClientSize = new System.Drawing.Size(379, 396);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -104,5 +148,9 @@
         private Label label1;
         private TextBox textBox1;
         private PictureBox pictureBox1;
+        private TextBox textBox2;
+        private Label label2;
+        private TextBox textBox3;
+        private Label label3;
     }
 }
