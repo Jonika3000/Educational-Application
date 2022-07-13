@@ -12,6 +12,7 @@ namespace WinFormsApp8
 {
     public partial class Dispatching : Form
     {
+        User r = new User();
         public Dispatching()
         {
             InitializeComponent();
@@ -22,7 +23,7 @@ namespace WinFormsApp8
             label1.Text = r.Login;
         }
 
-        private void button2_Click(object sender, EventArgs e , User r)
+        private void button2_Click(object sender, EventArgs e )
         {
             Profile m = new Profile(r, this);
             m.Show();
