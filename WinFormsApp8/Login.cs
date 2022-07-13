@@ -12,12 +12,14 @@ namespace WinFormsApp8
             InitializeComponent();
             Shown += First;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            button2.Click += ButtonLogin;
+            button3.Click += ButtonRegister;
         }
 
         void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             selected = comboBox1.SelectedItem.ToString() ;
-            MessageBox.Show(selected);
+             
         }
     
         void First (object sender , EventArgs e )
@@ -42,15 +44,21 @@ namespace WinFormsApp8
 
                  if (d.Type == "Student")
                 {
-
+                    this.Hide();
+                    Student s = new Student();
+                    s.ShowDialog();
                 }
                 else if (d.Type == "Teacher")
                 {
-
+                    this.Hide();
+                    Teacher t = new Teacher();
+                    t.ShowDialog();
                 }
                 else if (d.Type == "Dispatching")
                 {
-
+                    //this.Hide();
+                    //Dispatching t = new Dispatching();
+                    //t.ShowDialog();
                 }
             }
             else
@@ -63,20 +71,31 @@ namespace WinFormsApp8
         }
         void ButtonRegister (object sender , EventArgs e)
         {
-            User ro = new User();
-            //ro.Register();
-            var d = users.Where(a => a.Name == ro.Name).FirstOrDefault();
+            User r = new User();
+            r.Login = textBox1.Text;
+            r.Password = textBox2.Text;
 
-            if (d == null)
+            var d = users.Where(a => a.Name == r.Name).FirstOrDefault();
+
+            if (d == null && selected != null)
             {
-                users.Add(ro);
-                Console.WriteLine("Ready");
-                Console.ReadKey();
+                r.Type = selected;
+                users.Add(r);
+                label3.Visible = true;
+                label3.Text = "You have registered successfully";
+                this.label3.ForeColor = System.Drawing.Color.Green;
             }
-            else
+            else if (d == null)
             {
-                Console.WriteLine("User already registered");
-                Console.ReadKey();
+                label3.Visible = true;
+                label3.Text = "This user already exists";
+                this.label3.ForeColor = System.Drawing.Color.Red;
+            }
+            else if (selected != null)
+            {
+                label3.Visible = true;
+                label3.Text = "Select user type";
+                this.label3.ForeColor = System.Drawing.Color.Red;
             }
         }
     }
