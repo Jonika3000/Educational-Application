@@ -8,12 +8,12 @@ namespace WinFormsApp8
         ConsoleKeyInfo k;
         string logintmp;
         string passwordtmp;
+        DateTime t = new DateTime();
        public List<User> users = new List<User>();
         public Login()
         {
             InitializeComponent();
             Shown += First;
-            
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             button2.Click += ButtonLogin;
             button3.Click += ButtonRegister;
