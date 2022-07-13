@@ -63,20 +63,22 @@ namespace WinFormsApp8
         }
         void ButtonRegister (object sender , EventArgs e)
         {
-            User ro = new User();
-            //ro.Register();
-            var d = users.Where(a => a.Name == ro.Name).FirstOrDefault();
+            User r = new User();
+            r.Login = textBox1.Text;
+            r.Password = textBox2.Text;
+
+            var d = users.Where(a => a.Name == r.Name).FirstOrDefault();
 
             if (d == null)
             {
-                users.Add(ro);
-                Console.WriteLine("Ready");
-                Console.ReadKey();
+                users.Add(r);
+                 
             }
             else
             {
-                Console.WriteLine("User already registered");
-                Console.ReadKey();
+                label3.Visible = true;
+                label3.Text = "This user already exists";
+                this.label3.ForeColor = System.Drawing.Color.Red;
             }
         }
     }
