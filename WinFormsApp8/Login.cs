@@ -46,8 +46,13 @@ namespace WinFormsApp8
             r.Login = textBox1.Text;
             r.Password = textBox2.Text;
             var d = users.Where(a => a.Name == r.Name && a.Password == r.Password).FirstOrDefault();
-
-            if (d != null)
+            if (textBox1 == null && textBox2==null)
+            {
+                label3.Visible = true;
+                label3.Text = "All fields are not filled";
+                this.label3.ForeColor = System.Drawing.Color.Red;
+            }
+            else if (d != null)
             {
 
                  if (d.Type == "Student")
@@ -89,6 +94,7 @@ namespace WinFormsApp8
             if (d == null && selected != null)
             {
                 r.Type = selected;
+                r.icon = Image.FromFile("user ico.png");
                 users.Add(r);
                 label3.Visible = true;
                 label3.Text = "You have registered successfully";

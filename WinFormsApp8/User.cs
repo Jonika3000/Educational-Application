@@ -14,5 +14,7 @@ namespace WinFormsApp8
         public string Type { get; set; }
         public string Login { get; set; }
         public string Group { get; set; }
+        
+        public Image icon;
     }
 }

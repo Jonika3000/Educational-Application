@@ -21,5 +21,11 @@ namespace WinFormsApp8
             this.BackgroundImage = Image.FromFile("DispatchingFon.jpeg");
             label1.Text = r.Login;
         }
+
+        private void button2_Click(object sender, EventArgs e , User r)
+        {
+            Profile m = new Profile(r, this);
+            m.Show();
+        }
     }
 }
