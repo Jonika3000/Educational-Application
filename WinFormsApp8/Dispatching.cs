@@ -24,17 +24,31 @@ namespace WinFormsApp8
             r = q;
             label1.Text = r.Login;
             pictureBox1.Image = q.icon;
+            Text = "Dispatching Menu";
+            this.Icon = new Icon("book_ico.ico");
         }
-       public void UpdateL ()
+        public void UpdateL ()
         {
             pictureBox1.Image = r.icon;
             label1.Text=r.Login;
+            label2.Text = r.Group;
+            label4.Text = r.Name;
         }
         private void button2_Click(object sender, EventArgs e )
         {
             this.Hide();
             Profile m = new Profile(r, this);
             m.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var frm = Application.OpenForms.Cast<Form>().Where(x => x.Name == "Login").FirstOrDefault();
+            if (null != frm)
+            {
+                this.Close();
+                frm.Visible = true;
+            }
         }
     }
 }

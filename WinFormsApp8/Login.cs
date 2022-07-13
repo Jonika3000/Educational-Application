@@ -37,7 +37,9 @@ namespace WinFormsApp8
             comboBox1.Items.Add("Student");
             comboBox1.Items.Add("Teacher");
             comboBox1.Items.Add("Dispatching");
-            
+            Text = "Login";
+            this.Icon = new Icon("book_ico.ico");
+
             //LoadUser();
         }
         void ButtonLogin (object sender , EventArgs e)
@@ -89,9 +91,9 @@ namespace WinFormsApp8
             r.Login = textBox1.Text;
             r.Password = textBox2.Text;
 
-            var d = users.Where(a => a.Name == r.Name).FirstOrDefault();
+            var d = users.Where(a => a.Login == r.Login).FirstOrDefault();
 
-            if (d == null && selected != null && r.Password != null && r.Login != null)
+            if (d == null && selected != null && r.Password != string.Empty && r.Login != string.Empty)
             {
                 r.Type = selected;
                 r.icon = Image.FromFile("user ico.png");
@@ -100,13 +102,13 @@ namespace WinFormsApp8
                 label3.Text = "You have registered successfully";
                 this.label3.ForeColor = System.Drawing.Color.Green;
             }
-            else if (d == null)
+            else if (d != null)
             {
                 label3.Visible = true;
                 label3.Text = "This user already exists";
                 this.label3.ForeColor = System.Drawing.Color.Red;
             }
-            else if (selected != null)
+            else if (selected == null)
             {
                 label3.Visible = true;
                 label3.Text = "Select user type";
@@ -118,6 +120,11 @@ namespace WinFormsApp8
                 label3.Text = "Not all fields are filled";
                 this.label3.ForeColor = System.Drawing.Color.Red;
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

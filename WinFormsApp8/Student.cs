@@ -12,7 +12,7 @@ namespace WinFormsApp8
 {
     public partial class Student : Form
     {
-        
+       public User r = new User();
         public Student()
         {
             InitializeComponent();
@@ -20,13 +20,22 @@ namespace WinFormsApp8
         public Student(User s  )
         {
             InitializeComponent();
-           
+            Text = "Student menu";
+            this.Icon = new Icon("book_ico.ico");
             this.BackgroundImage = Image.FromFile("studentFon.jpg");
+            pictureBox1.Image = s.icon;
             label2.Text = s.Group;
             label4.Text = s.Name;
             label5.Text = s.Login;
+            r = s;
         }
-
+        public void UpdateL()
+        {
+            pictureBox1.Image = r.icon;
+            //label1.Text = r.Login;
+            label2.Text = r.Group;
+            label4.Text = r.Name;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             Marks s = new Marks();
@@ -41,6 +50,13 @@ namespace WinFormsApp8
                 this.Close();
                 frm.Visible = true;
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Profile m = new Profile(r, this);
+            m.ShowDialog();
         }
     }
 }
