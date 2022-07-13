@@ -12,14 +12,15 @@ namespace WinFormsApp8
 {
     public partial class Student : Form
     {
-        
+        Login parent;
         public Student()
         {
             InitializeComponent();
         }
-        public Student(User s)
+        public Student(User s , Login p)
         {
             InitializeComponent();
+            parent = p;
             this.BackgroundImage = Image.FromFile("studentFon.jpg");
             label2.Text = s.Group;
             label4.Text = s.Name;
