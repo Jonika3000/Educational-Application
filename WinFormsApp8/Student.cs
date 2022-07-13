@@ -32,5 +32,12 @@ namespace WinFormsApp8
             Marks s = new Marks();
             s.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            parent.ShowDialog();
+            
+        }
     }
 }
