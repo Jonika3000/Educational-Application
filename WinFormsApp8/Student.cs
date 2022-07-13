@@ -25,5 +25,11 @@ namespace WinFormsApp8
             label4.Text = s.Name;
             label5.Text = s.Login;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Marks s = new Marks();
+            s.Show();
+        }
     }
 }
