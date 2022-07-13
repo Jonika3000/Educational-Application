@@ -52,19 +52,19 @@ namespace WinFormsApp8
                  if (d.Type == "Student")
                 {
                     this.Hide();
-                    Student s = new Student();
+                    Student s = new Student(d);
                     s.ShowDialog();
                 }
                 else if (d.Type == "Teacher")
                 {
                     this.Hide();
-                    Teacher t = new Teacher();
+                    Teacher t = new Teacher(d);
                     t.ShowDialog();
                 }
                 else if (d.Type == "Dispatching")
                 {
                     this.Hide();
-                    Dispatching t = new Dispatching();
+                    Dispatching t = new Dispatching(d);
                     t.ShowDialog();
                 }
             }
