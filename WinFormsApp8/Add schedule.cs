@@ -21,6 +21,10 @@ namespace WinFormsApp8
         {
             InitializeComponent();
             this.BackgroundImage = Image.FromFile("DispatchingFon.jpeg");
+            monthCalendar1.ShowToday = true;
+            monthCalendar1.MaxSelectionCount = 1;
+            monthCalendar1.MinDate = DateTime.Now;
+            monthCalendar1.MaxDate = DateTime.Now.AddDays(30.0);
             r = q;
         }
 
@@ -46,7 +50,12 @@ namespace WinFormsApp8
                         }
                         else
                         {
-                        form3collection.groups.Where(ba => ba.NameOfGroup == textBox2.Text).Select(c => { c. = 1000; return c; }).ToList();
+                            
+                            DateTime dt = monthCalendar1.SelectionStart;
+                            form3collection.groups.Where(ba => ba.NameOfGroup == textBox2.Text).Select(c => {
+                            c.schedule.Add((form3collection.subjects.Where(ba => ba.Name == textBox1.Text).FirstOrDefault()), 
+                                dt); return c;
+                            }).ToList();
 
                         }
                     }
