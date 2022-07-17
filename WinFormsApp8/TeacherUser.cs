@@ -9,7 +9,7 @@ namespace WinFormsApp8
     public class TeacherUser
     {
         User user = new User();
-        Schedule schedule = new Schedule();
+        public Schedule schedule = new Schedule();
         public TeacherUser(User obj_r)
         {
             user = obj_r;

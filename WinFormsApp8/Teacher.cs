@@ -60,5 +60,11 @@ namespace WinFormsApp8
             SetGrades setGrades = new SetGrades();
             setGrades.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TeacherUser tc = new TeacherUser(r);
+            SeeSchedule sc = new SeeSchedule(tc.schedule);
+        }
     }
 }
