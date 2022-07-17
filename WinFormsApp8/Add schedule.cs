@@ -30,25 +30,35 @@ namespace WinFormsApp8
             var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
             if (null != form3collection)
             {
-                if (textBox1.Text == null || textBox2.Text == null || textBox3.Text == null || textBox4.Text == null)
+                if (textBox1.Text == null || maskedTextBox2.Text == null || maskedTextBox1.Text == null || textBox4.Text == null)
                 {
-                    MessageBox.Show("Some line is empty");
+                    MessageBox.Show( "Error", "Some line is empty" , MessageBoxButtons.OK , MessageBoxIcon.Error);
                 }
                 else
                 {
-                    foreach (var item in form3collection.users)
+                    if(form3collection.groups.Any(b => b.NameOfGroup == textBox2.Text) && 
+                        (form3collection.users.Any(b => b.Name == textBox4.Text && b.Type == "Teacher"))
+                         && maskedTextBox1.Text!=null && maskedTextBox2.Text != null)
                     {
-                        var parsedDate = DateTime.Parse(textBox2.Text);
-                        var parsedDate1 = DateTime.Parse(textBox3.Text);
-                        if (textBox4.Text == item.Name && item.Type == "Teacher")
+                        if (!form3collection.subjects.Any(ba => ba.Name == textBox1.Text))
                         {
-                            Subject subject = new Subject(textBox1.Text, parsedDate);
-                            item.schedule.Add(subject, parsedDate1);
-                            MessageBox.Show("Complete!");
+                            form3collection.subjects.Add(new Subject (textBox1.Text , Convert.ToDateTime(maskedTextBox1.Text)));
+                        }
+                        else
+                        {
+                        form3collection.groups.Where(ba => ba.NameOfGroup == textBox2.Text).Select(c => { c. = 1000; return c; }).ToList();
+
                         }
                     }
+                    
+
                 }
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

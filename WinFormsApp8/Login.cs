@@ -9,7 +9,9 @@ namespace WinFormsApp8
         string logintmp;
         string passwordtmp;
         DateTime t = new DateTime();
-       public List<User> users = new List<User>();
+        public List<User> users = new List<User>();
+        public List<Subject> subjects = new List<Subject>();   
+        public List<Group> groups = new List<Group>();
         public Login()
         {
             InitializeComponent();

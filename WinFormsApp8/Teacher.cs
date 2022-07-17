@@ -24,7 +24,7 @@ namespace WinFormsApp8
         {
             pictureBox1.Image = r.icon;
             label1.Text = r.Login;
-            label3.Text = r.Group;
+            //label3.Text = r.Group;
             label5.Text = r.Name;
         }
         public Teacher(User s)
@@ -32,7 +32,7 @@ namespace WinFormsApp8
             InitializeComponent();
             this.BackgroundImage = Image.FromFile("TeacherFom.jpg");
             label1.Text = s.Login;
-            label3.Text = s.Group;
+            //label3.Text = s.Group;
             label5.Text = s.Name;
             pictureBox1.Image = s.icon;
             r = s;

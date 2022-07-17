@@ -31,7 +31,7 @@ namespace WinFormsApp8
         {
             pictureBox1.Image = r.icon;
             label1.Text=r.Login;
-            label2.Text = r.Group;
+            //label2.Text = r.Group;
             label4.Text = r.Name;
         }
         private void button2_Click(object sender, EventArgs e )
