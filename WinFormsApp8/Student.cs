@@ -12,12 +12,12 @@ namespace WinFormsApp8
 {
     public partial class Student : Form
     {
-       public User r = new User();
-        public Student()
-        {
-            InitializeComponent();
-        }
-        public Student(User s  )
+           public User r = new User();
+            public Student()
+            {
+                InitializeComponent();
+            }
+            public Student(User s  )
         {
             InitializeComponent();
             Text = "Student menu";
