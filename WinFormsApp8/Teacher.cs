@@ -65,6 +65,7 @@ namespace WinFormsApp8
         {
             TeacherUser tc = new TeacherUser(r);
             SeeSchedule sc = new SeeSchedule(tc.schedule);
+            sc.ShowDialog();
         }
     }
 }
