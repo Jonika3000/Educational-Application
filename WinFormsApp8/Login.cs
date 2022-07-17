@@ -13,6 +13,7 @@ namespace WinFormsApp8
         public List<Subject> subjects = new List<Subject>();   
         public List<Group> groups = new List<Group>();
         public List<StudentUser> studentUsers= new List<StudentUser>();
+        public List<TeacherUser> teacherUsers = new List<TeacherUser>();
         public Login()
         {
             InitializeComponent();
@@ -136,6 +137,11 @@ namespace WinFormsApp8
                     {
                         StudentUser student = new StudentUser(r);    
                         studentUsers.Add(student);
+                    }
+                    else if (r.Type == "Teacher")
+                    {
+                        TeacherUser t = new TeacherUser(r);
+                        teacherUsers.Add(t);
                     }
                     label3.Visible = true;
                     label3.Text = "You have registered successfully";
