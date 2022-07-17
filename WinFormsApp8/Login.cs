@@ -5,26 +5,39 @@ namespace WinFormsApp8
     public partial class Login : Form
     {
         string selected;
-        ConsoleKeyInfo k;
         string logintmp;
         string passwordtmp;
+        DateTime t = new DateTime();
        public List<User> users = new List<User>();
         public Login()
         {
             InitializeComponent();
             Shown += First;
-            
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             button2.Click += ButtonLogin;
             button3.Click += ButtonRegister;
+            LoadUser();
         }
         void LoadUser()
         {
-            using (FileStream fs = new FileStream("user.json", FileMode.OpenOrCreate))
+            try
             {
-                users = JsonSerializer.Deserialize<List<User>>(fs);
+                using (FileStream fs = new FileStream("user.json", FileMode.OpenOrCreate))
+                {
+
+                    users = JsonSerializer.Deserialize<List<User>>(fs);
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
              
+        }
+        void Serel()
+        {
+            using var stream = File.Create("user.json");
+              JsonSerializer.SerializeAsync(stream, users);
         }
         void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -124,6 +137,7 @@ namespace WinFormsApp8
 
         private void button4_Click(object sender, EventArgs e)
         {
+            Serel();
             this.Close();
         }
     }
