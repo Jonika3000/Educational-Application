@@ -28,12 +28,28 @@ namespace WinFormsApp8
         void First (object sender , EventArgs e)
         {
             pictureBox1.BackgroundImage = u.icon;
+            var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
             Text = "Change profile";
             this.Icon = new Icon("book_ico.ico");
             textBox1.Text = u.Name;
             textBox2.Text = u.Password;
-            textBox3.Text = u.Group;
-            if (u.Type == "Dispatching")
+            if (u.Type== "Student" )
+            {
+                foreach(var t in form3collection.groups)
+                {
+                    foreach(var c in t.users)
+                            {
+                        if (c.r.Name == u.Name)
+                        {
+                            textBox3.Text = c.Group;
+                            break;
+                        }
+                    }
+                }
+                 
+            }
+             
+            else  
             {
                 textBox3.Text = "None";
                 textBox3.ReadOnly = true;
@@ -61,7 +77,7 @@ namespace WinFormsApp8
         {
             u.Name = textBox1.Text;
             u.Password = textBox2.Text;
-            u.Group = textBox3.Text;
+            //u.Group = textBox3.Text;
             u.icon = pictureBox1.BackgroundImage;
             var form2collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
            

@@ -9,7 +9,7 @@ namespace WinFormsApp8
     public class StudentUser
     {
         public Dictionary<Schedule,int> marks = new Dictionary<Schedule,int>();
-        User r = new User();
+        public User r = new User();
         public string Group { get; set; }
         public StudentUser(User r)
         {
