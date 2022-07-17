@@ -30,25 +30,25 @@ namespace WinFormsApp8
             var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
             if (null != form3collection)
             {
-                if (textBox1.Text == null || textBox2.Text == null || textBox3.Text == null || textBox4.Text == null)
+                if (textBox1.Text == null || maskedTextBox2.Text == null || maskedTextBox1.Text == null || textBox4.Text == null)
                 {
-                    MessageBox.Show("Some line is empty");
+                    MessageBox.Show( "Error", "Some line is empty" , MessageBoxButtons.OK , MessageBoxIcon.Error);
                 }
                 else
                 {
-                    foreach (var item in form3collection.users)
+                    if(form3collection.users.Any(b => b.Name == textBox4.Text))
                     {
-                        var parsedDate = DateTime.Parse(textBox2.Text);
-                        var parsedDate1 = DateTime.Parse(textBox3.Text);
-                        if (textBox4.Text == item.Name && item.Type == "Teacher")
-                        {
-                            Subject subject = new Subject(textBox1.Text, parsedDate);
-                            item.schedule.Add(subject, parsedDate1);
-                            MessageBox.Show("Complete!");
-                        }
+
                     }
+                    
+
                 }
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
