@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Text.RegularExpressions;
 
 namespace WinFormsApp8
 {
@@ -16,6 +17,8 @@ namespace WinFormsApp8
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             button2.Click += ButtonLogin;
             button3.Click += ButtonRegister;
+            textBox2.KeyPress += ButtonRegisterEx;
+            textBox1.KeyPress += ButtonRegisterEx;
             LoadUser();
         }
         void LoadUser()
@@ -98,43 +101,64 @@ namespace WinFormsApp8
 
             }
         }
+        void ButtonRegisterEx(object sender, KeyPressEventArgs e)
+        {
+            string Symbol = e.KeyChar.ToString();
+            char Symbol1 = e.KeyChar;
+            if (!Regex.Match(Symbol, @"^\w+$").Success)
+            {
+                e.Handled = true;
+            }
+            if (Symbol1 == 8 || Symbol1 == 32)
+            {
+                e.Handled = false;
+            }
+        }
+
         void ButtonRegister (object sender , EventArgs e)
         {
             User r = new User();
             r.Login = textBox1.Text;
             r.Password = textBox2.Text;
+            if (textBox2.Text.Length >= 6)
+            {
+                var d = users.Where(a => a.Login == r.Login).FirstOrDefault();
 
-            var d = users.Where(a => a.Login == r.Login).FirstOrDefault();
+                if (d == null && selected != null && r.Password != string.Empty && r.Login != string.Empty)
+                {
+                    r.Type = selected;
+                    r.icon = Image.FromFile("user ico.png");
+                    users.Add(r);
+                    label3.Visible = true;
+                    label3.Text = "You have registered successfully";
+                    this.label3.ForeColor = System.Drawing.Color.Green;
+                }
+                else if (d != null)
+                {
+                    Error("This user already exists");
+                }
+                else if (selected == null)
+                {
+                    Error("Select user type");
+                }
+                else if (r.Password == null && r.Login == null)
+                {
+                    Error("Not all fields are filled");
+                }
+            }
+               else
+            {
+                Error("Password is too small");
+            }
 
-            if (d == null && selected != null && r.Password != string.Empty && r.Login != string.Empty)
-            {
-                r.Type = selected;
-                r.icon = Image.FromFile("user ico.png");
-                users.Add(r);
-                label3.Visible = true;
-                label3.Text = "You have registered successfully";
-                this.label3.ForeColor = System.Drawing.Color.Green;
-            }
-            else if (d != null)
-            {
-                label3.Visible = true;
-                label3.Text = "This user already exists";
-                this.label3.ForeColor = System.Drawing.Color.Red;
-            }
-            else if (selected == null)
-            {
-                label3.Visible = true;
-                label3.Text = "Select user type";
-                this.label3.ForeColor = System.Drawing.Color.Red;
-            }
-            else if (r.Password == null && r.Login == null)
-            {
-                label3.Visible = true;
-                label3.Text = "Not all fields are filled";
-                this.label3.ForeColor = System.Drawing.Color.Red;
-            }
         }
+        void Error (string ex)
+        {
+            label3.Visible = true;
+            label3.Text = ex;
+            this.label3.ForeColor = System.Drawing.Color.Red;
 
+        }
         private void button4_Click(object sender, EventArgs e)
         {
             Serel();
