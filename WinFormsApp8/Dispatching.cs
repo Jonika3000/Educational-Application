@@ -55,5 +55,11 @@ namespace WinFormsApp8
             Add_schedule t = new Add_schedule();
             t.ShowDialog();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AddGroup t = new AddGroup();
+            t.ShowDialog();
+        }
     }
 }

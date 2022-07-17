@@ -12,6 +12,7 @@ namespace WinFormsApp8
         public List<User> users = new List<User>();
         public List<Subject> subjects = new List<Subject>();   
         public List<Group> groups = new List<Group>();
+        public List<StudentUser> studentUsers= new List<StudentUser>();
         public Login()
         {
             InitializeComponent();
@@ -131,6 +132,11 @@ namespace WinFormsApp8
                     r.Type = selected;
                     r.icon = Image.FromFile("user ico.png");
                     users.Add(r);
+                    if(r.Type =="Student")
+                    {
+                        StudentUser student = new StudentUser(r);    
+                        studentUsers.Add(student);
+                    }
                     label3.Visible = true;
                     label3.Text = "You have registered successfully";
                     this.label3.ForeColor = System.Drawing.Color.Green;
