@@ -56,6 +56,10 @@ namespace WinFormsApp8
                             c.schedule.Add((form3collection.subjects.Where(ba => ba.Name == textBox1.Text).FirstOrDefault()), 
                                 dt); return c;
                             }).ToList();
+                            form3collection.teacherUsers.Where(ba => ba.user.Name == textBox4.Text).Select(c => {
+                                c.schedule.Add((form3collection.subjects.Where(ba => ba.Name == textBox1.Text).FirstOrDefault()),
+                                    dt); return c;
+                            }).ToList();
 
                         }
                     }
