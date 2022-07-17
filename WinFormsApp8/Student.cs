@@ -58,5 +58,11 @@ namespace WinFormsApp8
             Profile m = new Profile(r, this);
             m.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            StudentUser s = new StudentUser(r);
+            SeeSchedule sc = new SeeSchedule(s.marks);
+        }
     }
 }

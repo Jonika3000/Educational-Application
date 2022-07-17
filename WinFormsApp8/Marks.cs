@@ -16,5 +16,10 @@ namespace WinFormsApp8
         {
             InitializeComponent();
         }
+        public Marks(StudentUser r)
+        {
+            InitializeComponent();
+            listBox1.DataSource = r.marks;
+        }
     }
 }

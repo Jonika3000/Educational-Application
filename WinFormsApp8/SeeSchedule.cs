@@ -21,5 +21,10 @@ namespace WinFormsApp8
             InitializeComponent();
             listBox1.DataSource = s;
         }
+        public SeeSchedule(Dictionary<Schedule, int> s)
+        {
+            InitializeComponent();
+            listBox1.DataSource = s;
+        }
     }
 }
