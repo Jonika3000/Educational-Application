@@ -78,7 +78,7 @@
             this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(33, 304);
+            this.button2.Location = new System.Drawing.Point(33, 206);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(149, 99);
             this.button2.TabIndex = 3;
@@ -93,7 +93,7 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(505, 178);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 15);
+            this.label4.Size = new System.Drawing.Size(0, 18);
             this.label4.TabIndex = 12;
             // 
             // label3
@@ -103,7 +103,7 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(426, 178);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 15);
+            this.label3.Size = new System.Drawing.Size(64, 18);
             this.label3.TabIndex = 11;
             this.label3.Text = "Name ->";
             // 
@@ -114,7 +114,7 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(505, 154);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 15);
+            this.label2.Size = new System.Drawing.Size(0, 18);
             this.label2.TabIndex = 10;
             // 
             // label5
@@ -124,7 +124,7 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(425, 154);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 15);
+            this.label5.Size = new System.Drawing.Size(75, 18);
             this.label5.TabIndex = 9;
             this.label5.Text = "Group ->";
             // 

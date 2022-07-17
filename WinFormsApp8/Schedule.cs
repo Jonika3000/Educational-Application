@@ -9,10 +9,10 @@ namespace WinFormsApp8
     public class Schedule
     {
         Dictionary<DateTime, Subject> schedule = new Dictionary<DateTime, Subject>();
+        //дата уроку и початок уроку
         public void Add(Subject s, DateTime d)
         {
             schedule.Add(d, s);
-
         }
         public void Delete(DateTime d)
         {
