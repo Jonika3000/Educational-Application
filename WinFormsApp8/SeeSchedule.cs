@@ -16,10 +16,14 @@ namespace WinFormsApp8
         {
             InitializeComponent();
         }
-        public SeeSchedule(Schedule s)
+        public SeeSchedule(TeacherUser tc)
         {
             InitializeComponent();
-            listBox1.DataSource = s;
+            foreach(var item in tc.schedule.schedule)
+            {
+                listBox1.Items.Add(item.Key);
+                listBox1.Items.Add(item.Value);
+            }
         }
         public SeeSchedule(Dictionary<Schedule, int> s)
         {
