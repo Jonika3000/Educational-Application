@@ -11,5 +11,6 @@ namespace WinFormsApp8
         public string NameOfGroup { get; set; }
         public List<StudentUser> users = new List<StudentUser>();
         public List<TeacherUser> teachers = new List<TeacherUser>();
+        public Schedule schedule = new Schedule();
     }
 }
