@@ -12,7 +12,6 @@ namespace WinFormsApp8
         public string Password { get; set; }
         public string Type { get; set; }
         public string Login { get; set; }
-        public string Group { get; set; }
 
         public Schedule schedule = new Schedule();
         public Image icon;
