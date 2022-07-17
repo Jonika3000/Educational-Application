@@ -35,12 +35,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -117,30 +117,11 @@
             this.textBox4.Size = new System.Drawing.Size(110, 23);
             this.textBox4.TabIndex = 8;
             // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(451, 232);
-            this.maskedTextBox1.Mask = "00:00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(34, 23);
-            this.maskedTextBox1.TabIndex = 10;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
-            // 
             // monthCalendar1
             // 
             this.monthCalendar1.Location = new System.Drawing.Point(492, 43);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 11;
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.ForeColor = System.Drawing.Color.Black;
-            this.maskedTextBox2.Location = new System.Drawing.Point(297, 94);
-            this.maskedTextBox2.Mask = "00:00";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(35, 23);
-            this.maskedTextBox2.TabIndex = 12;
-            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
             // 
             // label5
             // 
@@ -172,6 +153,24 @@
             this.textBox2.Size = new System.Drawing.Size(110, 23);
             this.textBox2.TabIndex = 15;
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(297, 94);
+            this.maskedTextBox1.Mask = "00:00";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(40, 23);
+            this.maskedTextBox1.TabIndex = 18;
+            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            // 
+            // maskedTextBox2
+            // 
+            this.maskedTextBox2.Location = new System.Drawing.Point(451, 232);
+            this.maskedTextBox2.Mask = "00:00";
+            this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.Size = new System.Drawing.Size(42, 23);
+            this.maskedTextBox2.TabIndex = 19;
+            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
+            // 
             // Add_schedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -179,12 +178,12 @@
             this.BackgroundImage = global::WinFormsApp8.Properties.Resources.DispatchingFon;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(700, 338);
+            this.Controls.Add(this.maskedTextBox2);
+            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.maskedTextBox2);
             this.Controls.Add(this.monthCalendar1);
-            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
@@ -209,12 +208,11 @@
         private Button button1;
         private Label label4;
         private TextBox textBox4;
-        private DateTimePicker dateTimePicker1;
-        private MaskedTextBox maskedTextBox1;
         private MonthCalendar monthCalendar1;
-        private MaskedTextBox maskedTextBox2;
         private Label label5;
         private Label label6;
         private TextBox textBox2;
+        private MaskedTextBox maskedTextBox1;
+        private MaskedTextBox maskedTextBox2;
     }
 }

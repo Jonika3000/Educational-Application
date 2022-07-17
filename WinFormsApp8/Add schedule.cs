@@ -36,9 +36,19 @@ namespace WinFormsApp8
                 }
                 else
                 {
-                    if(form3collection.users.Any(b => b.Name == textBox4.Text))
+                    if(form3collection.groups.Any(b => b.NameOfGroup == textBox2.Text) && 
+                        (form3collection.users.Any(b => b.Name == textBox4.Text && b.Type == "Teacher"))
+                         && maskedTextBox1.Text!=null && maskedTextBox2.Text != null)
                     {
+                        if (!form3collection.subjects.Any(ba => ba.Name == textBox1.Text))
+                        {
+                            form3collection.subjects.Add(new Subject (textBox1.Text , Convert.ToDateTime(maskedTextBox1.Text)));
+                        }
+                        else
+                        {
+                        form3collection.groups.Where(ba => ba.NameOfGroup == textBox2.Text).Select(c => { c. = 1000; return c; }).ToList();
 
+                        }
                     }
                     
 

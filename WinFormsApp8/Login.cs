@@ -11,6 +11,7 @@ namespace WinFormsApp8
         DateTime t = new DateTime();
         public List<User> users = new List<User>();
         public List<Subject> subjects = new List<Subject>();   
+        public List<Group> groups = new List<Group>();
         public Login()
         {
             InitializeComponent();
