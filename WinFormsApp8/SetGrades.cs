@@ -12,7 +12,7 @@ namespace WinFormsApp8
 {
     public partial class SetGrades : Form
     {
-        List<Group> groups = new List<Group>();
+        
         Group g = new Group();
         public SetGrades()
         {
@@ -21,8 +21,9 @@ namespace WinFormsApp8
         }
         public void FindGroup(object sender,EventArgs e)
         {
-            g = groups.Where(group => group.NameOfGroup == textBox1.Text).FirstOrDefault();
-            listBox1.DataSource = g.users;
+            var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
+            g = form3collection.groups.Where(group => group.NameOfGroup == textBox1.Text).FirstOrDefault();
+            listBox1.DataSource = form3collection.groups.Where(group => group.NameOfGroup == textBox1.Text ).Select(g => g.users);
         }
 
         private void button1_Click(object sender, EventArgs e)
