@@ -31,6 +31,8 @@ namespace WinFormsApp8
                     {
                         foreach (var c in t.users)
                             listBox1.Items.Add(c.r.Name);
+                        foreach (var c2 in t.schedule.schedule)
+                            listBox2.Items.Add($"{c2.Key}-{c2.Value}");
                         break;
                     }
                 }
