@@ -16,6 +16,7 @@ namespace WinFormsApp8
         public Add_schedule()
         {
             InitializeComponent();
+            button1.Click += button1_Click;
         }
         public Add_schedule(User q)
         {
