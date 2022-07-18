@@ -61,8 +61,9 @@ namespace WinFormsApp8
 
         private void button2_Click(object sender, EventArgs e)
         {
-            StudentUser s = new StudentUser(r);
-            SeeSchedule sc = new SeeSchedule(s.marks);
+            var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
+            SeeSchedule sc = new SeeSchedule(form3collection.studentUsers.Where(q => q.r.Name == r.Name).FirstOrDefault());
+            sc.ShowDialog();
         }
     }
 }

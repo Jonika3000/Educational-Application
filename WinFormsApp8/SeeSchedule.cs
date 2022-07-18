@@ -25,10 +25,14 @@ namespace WinFormsApp8
                 listBox1.Items.Add(item.Value);
             }
         }
-        public SeeSchedule(Dictionary<Schedule, int> s)
+        public SeeSchedule(StudentUser su)
         {
             InitializeComponent();
-            listBox1.DataSource = s;
+            foreach (var item in su.marks)
+            {
+                listBox1.Items.Add(item.Key);
+                listBox1.Items.Add(item.Value);
+            }
         }
     }
 }
