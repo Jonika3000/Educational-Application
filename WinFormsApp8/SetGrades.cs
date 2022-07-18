@@ -25,7 +25,16 @@ namespace WinFormsApp8
             {
                 var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
                 g = form3collection.groups.Where(group => group.NameOfGroup == textBox1.Text).FirstOrDefault();
-                listBox1.DataSource = form3collection.groups.Where(group => group.NameOfGroup == textBox1.Text).Select(g => g.users);
+                foreach(var t in form3collection.groups)
+                {
+                    if (t.NameOfGroup == textBox1.Text)
+                    {
+                        foreach (var c in t.users)
+                            listBox1.Items.Add(c.r.Name);
+                        break;
+                    }
+                }
+                //listBox1.DataSource = form3collection.groups.Where(group => group.NameOfGroup == textBox1.Text).Select(g => g.users);
             }
             catch
             {
@@ -35,14 +44,13 @@ namespace WinFormsApp8
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int mark = Int32.Parse(textBox2.Text);
-            foreach (var item in g.users)
-            {
-                if (item == listBox1.SelectedItem)
-                {
-                    item.AddMarks(mark, g.schedule);
-                }
-            }
+             
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Application.OpenForms[1].Visible = true;
         }
     }
 }
