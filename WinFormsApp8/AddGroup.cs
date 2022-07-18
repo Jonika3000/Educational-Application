@@ -25,6 +25,7 @@ namespace WinFormsApp8
             var range = form3collection.studentUsers.Where(n => n.r.Name != string.Empty);
             foreach(var student in form3collection.studentUsers)
             {
+                if(student.r.Name != string.Empty && student.InGroup==false)
                 listBox1.Items.Add(student.r.Name);
             }
         }
@@ -43,13 +44,14 @@ namespace WinFormsApp8
             var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
             string curItem = listBox1.SelectedItem.ToString();
             g.users.Add(form3collection.studentUsers.Where(w => w.r.Name == curItem).FirstOrDefault());
-            form3collection.studentUsers.Remove(form3collection.studentUsers.Where(w => w.r.Name == curItem).FirstOrDefault());
-            label3.Text += curItem;
+            form3collection.studentUsers.Where(w => w.r.Name == curItem).Select(w => { w.InGroup = true; return w; }).ToList();
+            //form3collection.studentUsers.Remove(form3collection.studentUsers.Where(w => w.r.Name == curItem).FirstOrDefault());
+            label3.Text += $"{curItem} ";
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string curItem = listBox1.SelectedItem.ToString();
+            string curItem = listBox2.SelectedItem.ToString();
             var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
             TeacherUser ak = new TeacherUser(form3collection.users.Where(w => w.Name == curItem).FirstOrDefault());
             g.teachers.Add(ak);
@@ -67,10 +69,19 @@ namespace WinFormsApp8
                     form3collection.groups.Remove((form3collection.groups.Where(f => f.NameOfGroup == textBox2.Text)).FirstOrDefault());
                 }
                 form3collection.groups.Add(g);
+                for (int i = 0; i < g.users.Count; i++)
+                    form3collection.studentUsers.Where(q => q.r.Name == g.users[i].r.Name).Select(c => { c.Group = g.NameOfGroup; return c; }).ToList() ;
+                
                 this.Close();
                 Application.OpenForms[1].Visible = true;
             }
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Application.OpenForms[1].Visible = true;
+            this.Close();
         }
     }
 }

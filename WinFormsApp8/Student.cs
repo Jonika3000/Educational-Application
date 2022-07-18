@@ -23,17 +23,21 @@ namespace WinFormsApp8
             Text = "Student menu";
             this.Icon = new Icon("book_ico.ico");
             this.BackgroundImage = Image.FromFile("studentFon.jpg");
+            var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
+            r = s;
             pictureBox1.Image = s.icon;
-            //label2.Text = s.Group;
+            label2.Text = form3collection.studentUsers.Where(q=>q.r.Name == r.Name).Select(q=>q.Group).FirstOrDefault();
             label4.Text = s.Name;
             label5.Text = s.Login;
-            r = s;
+            
         }
         public void UpdateL()
         {
             pictureBox1.Image = r.icon;
-            //label1.Text = r.Login;
+            label1.Text = r.Login;
+            var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
             //label2.Text = r.Group;
+            label2.Text = form3collection.studentUsers.Where(q => q.r.Name == r.Name).Select(q => q.Group).FirstOrDefault();
             label4.Text = r.Name;
         }
         private void button1_Click(object sender, EventArgs e)

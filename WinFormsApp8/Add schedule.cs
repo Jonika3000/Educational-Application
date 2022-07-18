@@ -64,7 +64,8 @@ namespace WinFormsApp8
 
                         }
                     }
-                    
+                    Application.OpenForms[1].Visible = true;
+                    this.Close();
 
                 }
             }
@@ -73,6 +74,12 @@ namespace WinFormsApp8
         private void button1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Application.OpenForms[1].Visible = true;
+            this.Close();
         }
     }
 }

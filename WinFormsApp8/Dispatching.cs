@@ -51,13 +51,14 @@ namespace WinFormsApp8
         }
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
             Add_schedule t = new Add_schedule();
             t.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            this.Hide();
             AddGroup t = new AddGroup();
             t.ShowDialog();
         }

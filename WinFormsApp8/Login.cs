@@ -34,6 +34,26 @@ namespace WinFormsApp8
 
                     users = JsonSerializer.Deserialize<List<User>>(fs);
                 }
+                using (FileStream fs = new FileStream("UsersTeacher.json", FileMode.OpenOrCreate))
+                {
+
+                    teacherUsers = JsonSerializer.Deserialize<List<TeacherUser>>(fs);
+                }
+                using (FileStream fs = new FileStream("UserStudents.json", FileMode.OpenOrCreate))
+                {
+
+                    studentUsers = JsonSerializer.Deserialize<List<StudentUser>>(fs);
+                }
+                using (FileStream fs = new FileStream("Subjects.json", FileMode.OpenOrCreate))
+                {
+
+                    subjects = JsonSerializer.Deserialize<List<Subject>>(fs);
+                }
+                using (FileStream fs = new FileStream("Groups.json", FileMode.OpenOrCreate))
+                {
+
+                    groups = JsonSerializer.Deserialize<List<Group>>(fs);
+                }
             }
             catch (Exception ex)
             {
@@ -41,10 +61,23 @@ namespace WinFormsApp8
             }
              
         }
-        void Serel()
+        
+        void SerelUsers()
         {
+            using var stream1 = File.Create("UserStudents.json");
+            JsonSerializer.SerializeAsync(stream1, studentUsers);
+
             using var stream = File.Create("user.json");
-              JsonSerializer.SerializeAsync(stream, users);
+            using var stream2 = File.Create("UsersTeacher.json");
+            
+            using var stream3 = File.Create("Groups.json");
+            using var stream4 = File.Create("Subjects.json");
+            JsonSerializer.SerializeAsync(stream, users);
+            
+           
+            JsonSerializer.SerializeAsync(stream2, teacherUsers);
+            JsonSerializer.SerializeAsync(stream3, groups);
+            JsonSerializer.SerializeAsync(stream4, subjects);
         }
         void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -175,7 +208,7 @@ namespace WinFormsApp8
         }
         private void button4_Click(object sender, EventArgs e)
         {
-            Serel();
+            SerelUsers();
             this.Close();
         }
     }

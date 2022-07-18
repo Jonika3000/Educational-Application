@@ -10,6 +10,7 @@ namespace WinFormsApp8
     {
         public Dictionary<Schedule,int> marks = new Dictionary<Schedule,int>();
         public User r = new User();
+        public bool InGroup = false;
         public string Group { get; set; }
         public StudentUser(User r)
         {

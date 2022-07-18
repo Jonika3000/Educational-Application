@@ -106,6 +106,7 @@
             this.textBox3.Location = new System.Drawing.Point(124, 169);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(165, 23);
             this.textBox3.TabIndex = 7;
             // 
