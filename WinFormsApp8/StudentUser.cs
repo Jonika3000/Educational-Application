@@ -8,7 +8,7 @@ namespace WinFormsApp8
 {
     public class StudentUser
     {
-        public Dictionary<Schedule,int> marks = new Dictionary<Schedule,int>();
+        public Dictionary<Schedule, string> marks = new Dictionary<Schedule, string>();
         public User r = new User();
         public bool InGroup = false;
         public string Group { get; set; }
@@ -16,7 +16,7 @@ namespace WinFormsApp8
         {
             this.r = r;
         }
-        public void AddMarks(int m,Schedule s)
+        public void AddMarks(string m,Schedule s)
         {
             marks.Add(s, m);
         }
