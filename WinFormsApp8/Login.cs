@@ -67,7 +67,7 @@ namespace WinFormsApp8
             User r = new User();
             r.Login = textBox1.Text;
             r.Password = textBox2.Text;
-            var d = users.Where(a => a.Name == r.Name && a.Password == r.Password).FirstOrDefault();
+            var d = users.Where(a => a.Login == r.Login && a.Password == r.Password).FirstOrDefault();
             if (textBox1 == null && textBox2==null)
             {
                 label3.Visible = true;
