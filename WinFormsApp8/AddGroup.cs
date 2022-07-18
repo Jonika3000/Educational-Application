@@ -34,7 +34,7 @@ namespace WinFormsApp8
             foreach (var student in form3collection.users)
             {
                 if(student.Type == "Teacher")
-                listBox1.Items.Add(student.Name);
+                listBox2.Items.Add(student.Name);
             }
         }
 
@@ -53,7 +53,7 @@ namespace WinFormsApp8
             var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
             TeacherUser ak = new TeacherUser(form3collection.users.Where(w => w.Name == curItem).FirstOrDefault());
             g.teachers.Add(ak);
-            label4.Text += curItem;
+            label4.Text += $"{curItem} " ;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -67,7 +67,10 @@ namespace WinFormsApp8
                     form3collection.groups.Remove((form3collection.groups.Where(f => f.NameOfGroup == textBox2.Text)).FirstOrDefault());
                 }
                 form3collection.groups.Add(g);
+                this.Close();
+                Application.OpenForms[1].Visible = true;
             }
+
         }
     }
 }
