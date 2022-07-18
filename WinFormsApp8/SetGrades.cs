@@ -21,9 +21,16 @@ namespace WinFormsApp8
         }
         public void FindGroup(object sender,EventArgs e)
         {
-            var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
-            g = form3collection.groups.Where(group => group.NameOfGroup == textBox1.Text).FirstOrDefault();
-            listBox1.DataSource = form3collection.groups.Where(group => group.NameOfGroup == textBox1.Text ).Select(g => g.users);
+            try
+            {
+                var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
+                g = form3collection.groups.Where(group => group.NameOfGroup == textBox1.Text).FirstOrDefault();
+                listBox1.DataSource = form3collection.groups.Where(group => group.NameOfGroup == textBox1.Text).Select(g => g.users);
+            }
+            catch
+            {
+
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
