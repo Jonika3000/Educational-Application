@@ -21,8 +21,9 @@ namespace WinFormsApp8
         }
         void AddListBoxStudents()
         {
+            listBox1.Items.Clear();
             var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
-            var range = form3collection.studentUsers.Where(n => n.r.Name != string.Empty);
+            //var range = form3collection.studentUsers.Where(n => n.r.Name != string.Empty);
             foreach(var student in form3collection.studentUsers)
             {
                 if(student.r.Name != string.Empty && student.InGroup==false)
@@ -34,7 +35,7 @@ namespace WinFormsApp8
             var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
             foreach (var student in form3collection.users)
             {
-                if(student.Type == "Teacher")
+                if(student.Type == "Teacher" && student.Name != string.Empty)
                 listBox2.Items.Add(student.Name);
             }
         }
@@ -47,6 +48,7 @@ namespace WinFormsApp8
             form3collection.studentUsers.Where(w => w.r.Name == curItem).Select(w => { w.InGroup = true; return w; }).ToList();
             //form3collection.studentUsers.Remove(form3collection.studentUsers.Where(w => w.r.Name == curItem).FirstOrDefault());
             label3.Text += $"{curItem} ";
+            AddListBoxStudents();
         }
 
         private void button3_Click(object sender, EventArgs e)

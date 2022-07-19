@@ -103,6 +103,16 @@ namespace WinFormsApp8.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap studentFon {
+            get {
+                object obj = ResourceManager.GetObject("studentFon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap TeacherFom {
             get {
                 object obj = ResourceManager.GetObject("TeacherFom", resourceCulture);

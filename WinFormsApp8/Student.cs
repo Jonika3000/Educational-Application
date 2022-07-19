@@ -42,8 +42,10 @@ namespace WinFormsApp8
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            Marks s = new Marks();
-            s.Show();
+            var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
+            this.Hide();
+            Marks s = new Marks(form3collection.studentUsers.Where(q=>q.r.Name == r.Name).FirstOrDefault());
+            s.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -65,7 +67,9 @@ namespace WinFormsApp8
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
             var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
+            this.Hide();
             SeeSchedule sc = new SeeSchedule(form3collection.studentUsers.Where(q => q.r.Name == r.Name).FirstOrDefault());
             sc.ShowDialog();
         }

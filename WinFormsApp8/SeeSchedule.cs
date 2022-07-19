@@ -19,20 +19,48 @@ namespace WinFormsApp8
         public SeeSchedule(TeacherUser tc)
         {
             InitializeComponent();
-            foreach(var item in tc.schedule.schedule)
+            DateTime timelesson = new DateTime();
+            DateTime timeNow = DateTime.Now;
+            foreach (var item in tc.schedule.schedule)
             {
-                listBox1.Items.Add(item.Key);
-                listBox1.Items.Add(item.Value);
+                if (item.Key>timeNow)
+                {
+                    timelesson = item.Key;
+                    timelesson = timelesson.AddHours(item.Value.time.Hour);
+                    timelesson = timelesson.AddMinutes(item.Value.time.Minute);
+                    listBox1.Items.Add($"{item.Key}-{timelesson} -> {item.Value.Name}");
+                }
+                
             }
         }
         public SeeSchedule(StudentUser su)
         {
             InitializeComponent();
-            foreach (var item in su.marks)
+            var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
+            var c = form3collection.groups.Where(q => q.users.Contains(su));
+            DateTime timelesson = new DateTime();
+            DateTime timeNow = DateTime.Now;
+            foreach (var item in c)
             {
-                listBox1.Items.Add(item.Key);
-                listBox1.Items.Add(item.Value);
+                foreach(var i in  item.schedule.schedule)
+                {
+                    if (i.Key > timeNow)
+                    {
+                        timelesson = i.Key;
+                        timelesson = timelesson.AddHours(i.Value.time.Hour);
+                        timelesson = timelesson.AddMinutes(i.Value.time.Minute);
+
+                        listBox1.Items.Add($"{i.Key}-{timelesson} -> {i.Value.Name}");
+                    }
+                }
+                 
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Application.OpenForms[1].Visible = true;
         }
     }
 }

@@ -131,9 +131,9 @@
             this.label5.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(451, 214);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(205, 15);
+            this.label5.Size = new System.Drawing.Size(242, 15);
             this.label5.TabIndex = 13;
-            this.label5.Text = "Enter the date of the lesson ->";
+            this.label5.Text = "Enter the time of start the lesson ->";
             // 
             // label6
             // 

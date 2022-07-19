@@ -57,6 +57,7 @@ namespace WinFormsApp8
 
         private void button2_Click(object sender, EventArgs e)
         {
+            this.Hide();
             SetGrades setGrades = new SetGrades();
             setGrades.ShowDialog();
         }
@@ -64,6 +65,7 @@ namespace WinFormsApp8
         private void button1_Click(object sender, EventArgs e)
         {
            var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
+            this.Hide();
             SeeSchedule sc = new SeeSchedule(form3collection.teacherUsers.Where(b => b.user.Name == r.Name).FirstOrDefault());
             sc.ShowDialog();
         }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp8
 {
+    [Serializable]
     public class User
     {
         public string Name { get; set; }

@@ -19,7 +19,20 @@ namespace WinFormsApp8
         public Marks(StudentUser r)
         {
             InitializeComponent();
-            listBox1.DataSource = r.marks;
+            foreach(var c in r.marks)
+            {
+                foreach (var b in c.Key.schedule)
+                {
+                    listBox1.Items.Add($"{b.Key}-{b.Value.Name} -> {c.Value}");
+                }
+            }
+            
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Application.OpenForms[1].Visible = true;
         }
     }
 }

@@ -49,10 +49,10 @@ namespace WinFormsApp8
                         {
                             form3collection.subjects.Add(new Subject (textBox1.Text , Convert.ToDateTime(maskedTextBox1.Text)));
                         }
-                        else
-                        {
-                            
                             DateTime dt = monthCalendar1.SelectionStart;
+                            DateTime Time = Convert.ToDateTime(maskedTextBox2.Text);
+                          dt= dt.AddHours(Time.Hour);
+                          dt = dt.AddMinutes(Time.Minute);
                             form3collection.groups.Where(ba => ba.NameOfGroup == textBox2.Text).Select(c => {
                             c.schedule.Add((form3collection.subjects.Where(ba => ba.Name == textBox1.Text).FirstOrDefault()), 
                                 dt); return c;
@@ -62,7 +62,7 @@ namespace WinFormsApp8
                                     dt); return c;
                             }).ToList();
 
-                        }
+                        
                     }
                     Application.OpenForms[1].Visible = true;
                     this.Close();
@@ -71,10 +71,7 @@ namespace WinFormsApp8
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void button4_Click(object sender, EventArgs e)
         {
