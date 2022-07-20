@@ -62,5 +62,12 @@ namespace WinFormsApp8
             AddGroup t = new AddGroup();
             t.ShowDialog();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DeleteGroup deleteGroup = new DeleteGroup();
+            deleteGroup.ShowDialog();
+        }
     }
 }
