@@ -112,6 +112,7 @@ namespace WinFormsApp8
             {
                 textBox1.Text = string.Empty;
                 textBox2.Text = string.Empty;
+                label3.Text = string.Empty;
                 if (d.Type == "Student")
                 {
                     this.Hide();

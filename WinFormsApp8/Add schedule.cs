@@ -31,47 +31,69 @@ namespace WinFormsApp8
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            DateTime tmp = new DateTime();
+            DateTime tmp1 = new DateTime();
+            DateTime tmp2 = new DateTime();
+            try
+            {
+                tmp = Convert.ToDateTime(maskedTextBox2.Text);
+                tmp1 = Convert.ToDateTime(maskedTextBox1.Text);
+                tmp2 = new DateTime();
+                tmp2 = tmp2.AddHours(10);
+            }
+            catch
+            {
+                MessageBox.Show("Error time", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
             if (null != form3collection)
             {
-                if (textBox1.Text == null || maskedTextBox2.Text == null || maskedTextBox1.Text == null || textBox4.Text == null)
+
+                if (textBox1.Text == string.Empty || maskedTextBox2.Text == string.Empty || maskedTextBox1.Text == string.Empty
+                    || textBox4.Text == string.Empty)
                 {
-                    MessageBox.Show( "Error", "Some line is empty" , MessageBoxButtons.OK , MessageBoxIcon.Error);
+
+                    MessageBox.Show("Some line is empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
                 else
                 {
-                    if(form3collection.groups.Any(b => b.NameOfGroup == textBox2.Text) && 
+                    if (form3collection.groups.Any(b => b.NameOfGroup == textBox2.Text) &&
                         (form3collection.users.Any(b => b.Name == textBox4.Text && b.Type == "Teacher"))
-                         && maskedTextBox1.Text!=null && maskedTextBox2.Text != null)
+                         && maskedTextBox1.Text != null && maskedTextBox2.Text != null)
                     {
                         if (!form3collection.subjects.Any(ba => ba.Name == textBox1.Text))
                         {
-                            form3collection.subjects.Add(new Subject (textBox1.Text , Convert.ToDateTime(maskedTextBox1.Text)));
+                            form3collection.subjects.Add(new Subject(textBox1.Text, Convert.ToDateTime(maskedTextBox1.Text)));
                         }
-                            DateTime dt = monthCalendar1.SelectionStart;
-                            DateTime Time = Convert.ToDateTime(maskedTextBox2.Text);
-                          dt= dt.AddHours(Time.Hour);
-                          dt = dt.AddMinutes(Time.Minute);
-                            form3collection.groups.Where(ba => ba.NameOfGroup == textBox2.Text).Select(c => {
-                            c.schedule.Add((form3collection.subjects.Where(ba => ba.Name == textBox1.Text).FirstOrDefault()), 
+                        DateTime dt = monthCalendar1.SelectionStart;
+                        DateTime Time = Convert.ToDateTime(maskedTextBox2.Text);
+                        dt = dt.AddHours(Time.Hour);
+                        dt = dt.AddMinutes(Time.Minute);
+                        form3collection.groups.Where(ba => ba.NameOfGroup == textBox2.Text).Select(c =>
+                        {
+                            c.schedule.Add((form3collection.subjects.Where(ba => ba.Name == textBox1.Text).FirstOrDefault()),
                                 dt); return c;
-                            }).ToList();
-                            form3collection.teacherUsers.Where(ba => ba.user.Name == textBox4.Text).Select(c => {
-                                c.schedule.Add((form3collection.subjects.Where(ba => ba.Name == textBox1.Text).FirstOrDefault()),
-                                    dt); return c;
-                            }).ToList();
+                        }).ToList();
+                        form3collection.teacherUsers.Where(ba => ba.user.Name == textBox4.Text).Select(c =>
+                        {
+                            c.schedule.Add((form3collection.subjects.Where(ba => ba.Name == textBox1.Text).FirstOrDefault()),
+                                dt); return c;
+                        }).ToList();
+                        Application.OpenForms[1].Visible = true;
+                        this.Close();
 
-                        
                     }
-                    Application.OpenForms[1].Visible = true;
-                    this.Close();
-
+                    else
+                    {
+                        MessageBox.Show("Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
 
-       
+
 
         private void button4_Click(object sender, EventArgs e)
         {
