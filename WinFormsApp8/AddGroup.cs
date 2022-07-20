@@ -32,7 +32,7 @@ namespace WinFormsApp8
         }
         void AddListBoxTeachers()
         {
-            listBox1.Items.Clear();
+            listBox2.Items.Clear();
             var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
             foreach (var student in form3collection.users)
             {
@@ -56,9 +56,9 @@ namespace WinFormsApp8
                 form3collection.studentUsers.Where(w => w.r.Name == curItem).Select(w => { w.InGroup = true; return w; }).ToList();
                 //form3collection.studentUsers.Remove(form3collection.studentUsers.Where(w => w.r.Name == curItem).FirstOrDefault());
                 label3.Text += $"{curItem} ";
-                AddListBoxStudents();
-            }
                
+            }
+            AddListBoxStudents();
         }
 
         private void button3_Click(object sender, EventArgs e)
