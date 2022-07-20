@@ -10,9 +10,9 @@ namespace WinFormsApp8
         string passwordtmp;
         DateTime t = new DateTime();
         public List<User> users = new List<User>();
-        public List<Subject> subjects = new List<Subject>();   
+        public List<Subject> subjects = new List<Subject>();
         public List<Group> groups = new List<Group>();
-        public List<StudentUser> studentUsers= new List<StudentUser>();
+        public List<StudentUser> studentUsers = new List<StudentUser>();
         public List<TeacherUser> teacherUsers = new List<TeacherUser>();
         public Login()
         {
@@ -59,9 +59,9 @@ namespace WinFormsApp8
             {
 
             }
-             
+
         }
-        
+
         void SerelUsers()
         {
             using var stream1 = File.Create("UserStudents.json");
@@ -69,24 +69,24 @@ namespace WinFormsApp8
 
             using var stream = File.Create("user.json");
             using var stream2 = File.Create("UsersTeacher.json");
-            
+
             using var stream3 = File.Create("Groups.json");
             using var stream4 = File.Create("Subjects.json");
             JsonSerializer.SerializeAsync(stream, users);
-            
-           
+
+
             JsonSerializer.SerializeAsync(stream2, teacherUsers);
             JsonSerializer.SerializeAsync(stream3, groups);
             JsonSerializer.SerializeAsync(stream4, subjects);
         }
         void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBox1.SelectedItem != null)
-            selected = comboBox1.SelectedItem.ToString() ;
-             
+            if (comboBox1.SelectedItem != null)
+                selected = comboBox1.SelectedItem.ToString();
+
         }
-    
-        void First (object sender , EventArgs e )
+
+        void First(object sender, EventArgs e)
         {
             comboBox1.Items.Add("Student");
             comboBox1.Items.Add("Teacher");
@@ -96,13 +96,13 @@ namespace WinFormsApp8
 
             //LoadUser();
         }
-        void ButtonLogin (object sender , EventArgs e)
+        void ButtonLogin(object sender, EventArgs e)
         {
             User r = new User();
             r.Login = textBox1.Text;
             r.Password = textBox2.Text;
             var d = users.Where(a => a.Login == r.Login && a.Password == r.Password).FirstOrDefault();
-            if (textBox1 == null && textBox2==null)
+            if (textBox1 == null && textBox2 == null)
             {
                 label3.Visible = true;
                 label3.Text = "All fields are not filled";
@@ -110,11 +110,12 @@ namespace WinFormsApp8
             }
             else if (d != null)
             {
-
-                 if (d.Type == "Student")
+                textBox1.Text = string.Empty;
+                textBox2.Text = string.Empty;
+                if (d.Type == "Student")
                 {
                     this.Hide();
-                    Student s = new Student(d );
+                    Student s = new Student(d);
                     s.ShowDialog();
                 }
                 else if (d.Type == "Teacher")
@@ -125,19 +126,20 @@ namespace WinFormsApp8
                 }
                 else if (d.Type == "Dispatching")
                 {
-                    
+
                     this.Hide();
                     Dispatching t = new Dispatching(d);
                     t.ShowDialog();
                 }
+
             }
             else
             {
                 label3.Visible = true;
                 label3.Text = "There is no such user";
                 this.label3.ForeColor = System.Drawing.Color.Red;
-
             }
+
         }
         void ButtonRegisterEx(object sender, KeyPressEventArgs e)
         {
@@ -153,7 +155,7 @@ namespace WinFormsApp8
             }
         }
 
-        void ButtonRegister (object sender , EventArgs e)
+        void ButtonRegister(object sender, EventArgs e)
         {
             User r = new User();
             r.Login = textBox1.Text;
@@ -167,9 +169,9 @@ namespace WinFormsApp8
                     r.Type = selected;
                     r.icon = Image.FromFile("user ico.png");
                     users.Add(r);
-                    if(r.Type =="Student")
+                    if (r.Type == "Student")
                     {
-                        StudentUser student = new StudentUser(r);    
+                        StudentUser student = new StudentUser(r);
                         studentUsers.Add(student);
                     }
                     else if (r.Type == "Teacher")
@@ -194,13 +196,13 @@ namespace WinFormsApp8
                     Error("Not all fields are filled");
                 }
             }
-               else
+            else
             {
                 Error("Password is too small");
             }
 
         }
-        void Error (string ex)
+        void Error(string ex)
         {
             label3.Visible = true;
             label3.Text = ex;

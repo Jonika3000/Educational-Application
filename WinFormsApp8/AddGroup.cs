@@ -26,7 +26,7 @@ namespace WinFormsApp8
             //var range = form3collection.studentUsers.Where(n => n.r.Name != string.Empty);
             foreach(var student in form3collection.studentUsers)
             {
-                if(student.r.Name != string.Empty && student.InGroup==false)
+                if(student.r.Name != null && student.InGroup==false)
                 listBox1.Items.Add(student.r.Name);
             }
         }
@@ -35,7 +35,7 @@ namespace WinFormsApp8
             var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
             foreach (var student in form3collection.users)
             {
-                if(student.Type == "Teacher" && student.Name != string.Empty)
+                if(student.Type == "Teacher" && student.Name != null)
                 listBox2.Items.Add(student.Name);
             }
         }
