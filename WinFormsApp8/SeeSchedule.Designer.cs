@@ -66,6 +66,7 @@
             this.ClientSize = new System.Drawing.Size(700, 338);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.listBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SeeSchedule";
             this.Text = "SeeSchedule";

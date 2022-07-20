@@ -81,6 +81,7 @@ namespace WinFormsApp8
         }
         void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(comboBox1.SelectedItem != null)
             selected = comboBox1.SelectedItem.ToString() ;
              
         }
