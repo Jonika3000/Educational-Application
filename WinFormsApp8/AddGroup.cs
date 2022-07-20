@@ -49,7 +49,7 @@ namespace WinFormsApp8
         {
             var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
             string curItem;
-            if (listBox2.SelectedItem.ToString() != null)
+            if (listBox2.SelectedItem  != null)
             {
                  curItem = listBox1.SelectedItem.ToString();
                 g.users.Add(form3collection.studentUsers.Where(w => w.r.Name == curItem).FirstOrDefault());
@@ -64,7 +64,7 @@ namespace WinFormsApp8
         private void button3_Click(object sender, EventArgs e)
         {
             string curItem; 
-            if (listBox2.SelectedItem.ToString() != null)
+            if (listBox2.SelectedItem  != null)
             {
                  curItem = listBox2.SelectedItem.ToString();
                 var form3collection = Application.OpenForms.OfType<Login>().FirstOrDefault();
